@@ -1,19 +1,20 @@
+USE bestbuy;
 /* joins: select all the computers from the products table:
 SELECT * FROM Products WHERE Product IS Computers;
 using the products table and the categories table, return the product name and the category name */
-SELECT products.Name AS Product, categories.Name AS categories
+SELECT products.Name AS Products, categories.Name AS Categories
 FROM Products
 INNER JOIN Categories
 ON categories.CategoryID = products.CategoryID
 WHERE categories.Name = "Computers";
 /* joins: find all product names, product prices, and products ratings that have a rating of 5 */
-SELECT products.Name, Products.Price, reviews.Rating
+SELECT products.Name, products.Price, reviews.Rating
 FROM Products
 INNER JOIN reviews
 ON reviews.ProductID = products.ProductID
-Where Rating = 5;
+WHERE Rating = 5;
 /* joins: find the employee with the most total quantity sold.  use the sum() function and group by */
-SELECT CONCAT(FirstName, "", LastName) AS Employee, SUM(Quantity) AS Total 
+SELECT CONCAT(FirstName, "", LastName) AS Employee, SUM(Quantity) AS Total
 FROM employees
 INNER JOIN sales
 ON sales.EmployeeID = employees.EmployeeID
@@ -25,9 +26,9 @@ SELECT departments.Name AS Department, Category.Name AS Category
 FROM Departments
 INNER JOIN categories
 ON departments.DepartmentID = categories.DepartmentID
-WHERE categories.Name = "Appliances";
+WHERE categories.Name = "Appliance and Games";
 /* joins: find the product name, total # sold, and total price sold,
-SELECT products.Name AS Product 
+SELECT products.Name AS Product
  for Eagles: Hotel California --You may need to use SUM() */
 SELECT products.Name AS Product, SUM(QUANTITY) AS Total_Units_Sold,
 SUM(QUANTITY + PricePerUnit) AS Gross_Revenue
@@ -40,10 +41,10 @@ SELECT product.Name AS Product, Reviewer, Rating, Comment
 FROM products
 INNER JOIN reviews
 ON reviews.ProductID = products.ProductID
-WHERE Name LIKE "%Visio TV%" AND Rating = (SELECT MIN (Rating) 
+WHERE Name LIKE "%Visio TV%" AND Rating = (SELECT MIN (Rating)
 FROM reviews WHERE ProductID = product.ProductID);
 -- ------------------------------------------ Extra - May be difficult
-SELECT 
+SELECT
 EMPLOYEES.EMPLOYEEID,
 FirstName,
 LastName,
@@ -58,7 +59,7 @@ ON sales.ProductID = products.ProductID
 GROUP BY sales.ProductID
 ORDER BY FirstName;
 /* Your goal is to write a query that serves as an employee sales report.*/
-SELECT 
+SELECT
   ProductID,
   SUM(Quantity) AS Total_Units_Sold,
   SUM(Quantity + PricePerUnit) AS Gross_Revenue
@@ -67,8 +68,8 @@ SELECT
   ON sales.EmployeeID = employees.EmployeeID
   GROUP BY sales.EmployeeID
   ORDER BY ProductID;
-  
-  SELECT 
+
+  SELECT
     employeee.EmployeeID,
     FirstName,
     LastName,

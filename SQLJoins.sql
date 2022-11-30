@@ -31,11 +31,11 @@ WHERE categories.Name = "Appliances" OR categories.Name = "Games";
 SELECT products.Name AS Product
  for Eagles: Hotel California --You may need to use SUM() */
 SELECT products.Name AS Product, SUM(QUANTITY) AS Total_Units_Sold,
-SUM(QUANTITY + PricePerUnit) AS Gross_Revenue
+SUM(QUANTITY * PricePerUnit) AS Gross_Revenue
 FROM sales
 INNER JOIN products
 ON sales.ProductsID = products.ProductID
-WHERE Name LIKE "Eagles: Hotel California";
+WHERE products.Name LIKE "Eagles: Hotel California";
 /*find product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
 SELECT product.Name AS Product, Reviewer, Rating, Comment
 FROM products

@@ -82,7 +82,7 @@ SELECT
     ON sales.EmployeeID = employees.EmploiyeeID
     INNER JOIN products
     ON sales.ProductID = products.ProductID
-    GROUP BY sales.EmployeeID, slaes.ProductID
+    GROUP BY sales.EmployeeID, sales.ProductID
     ORDER BY sales.EmployeeID, Gross_Revenue DESC;
 
 /*This query should return the employeeID, the employee's first and last name, the name of each product, how many of that product they sold */

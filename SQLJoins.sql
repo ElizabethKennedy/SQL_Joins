@@ -26,7 +26,7 @@ SELECT departments.Name AS Department, Category.Name AS Category
 FROM Departments
 INNER JOIN categories
 ON departments.DepartmentID = categories.DepartmentID
-WHERE categories.Name = "Appliance and Games";
+WHERE categories.Name = "Appliances" OR categories.Name = "Games";
 /* joins: find the product name, total # sold, and total price sold,
 SELECT products.Name AS Product
  for Eagles: Hotel California --You may need to use SUM() */
